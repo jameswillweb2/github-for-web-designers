@@ -42,6 +42,14 @@
     <h5>Setting the default editor</h5>
       <pre><code>git config --global core.editor &lt;tool&gt;</code></pre>
     <p>If you want to use a different editor than Vim or Vi you can set that by adding your tool of choice here.</p>
+    
+    <pre><code>git config --global user.name  &lt;"YourName"&gt;</code></pre>
+    <p>Set the name you want to show for your commits.</p>
+    <pre><code>git config --global user.email  &lt;"YourEmail"&gt;</code></pre>
+    <p>Set the email you want to show for your commits.</p>
+    <pre><code>git config --global --list</code></pre>
+    <p>To see the current config.</p>
+
     <h4>Global ignore file</h4>
     <pre><code>git config --global core.excludesfile ~/.gitignore_global</code></pre>
     <p>.gitignore files can help you decide which files are tracked or not in local repositories. However if you ever want files to be ignored globally across all repositories you can use this command. Just create a plain text file, name it what you&rsquo;d like and point to it after the core.excludesfile command. Here the example &ldquo;.gitignore_global&rdquo; is used. Github has a link to common configurations that can help get you started.</p>
@@ -84,7 +92,9 @@ git config --global alias.mr merge</code></pre>
     <pre><code>git add &lt;directory name&gt;</code></pre>
     <p>Will add all files in the directory.</p>
     <pre><code>git add .</code></pre>
-    <p>Adds all untracked and modified files, even those in subdirectories.</p>
+    <p>Adds all untracked and modified files, even those in subdirectories, of the current directory.</p>
+    <pre><code>git add -A</code></pre>
+    <p>Adds all untracked and modified files of the entire repository.</p>
     <pre><code>git add *.txt</code></pre>
     <p>Wildcards can be used to add all files of a specific type, in this instance text files.</p>
     <pre><code>git add -f &lt;filename&gt; </code></pre>
@@ -103,6 +113,13 @@ git config --global alias.mr merge</code></pre>
     <p>Allows you to add staged files to a previous commit. Helpful if you forget to add a file to the previous commit and don&rsquo;t want to add another commit to the history.</p>
     <h4>Reset</h4>
     <p>Allows you to revert to earlier commits. How reset works is altered dramatically by the parameters you pass to it. Since space here doesn&rsquo;t allow for a full discussion of that, please see Scott Chacon&rsquo;s article on reset on the <a href="http://git-scm.com/blog/2011/07/11/reset.html" title="More information on the reset command">Git blog</a>.</p>
+    <pre><code>git reset --soft &lt;‘code of a commit from the git log’&gt;</code></pre>
+    <p>Removes the commit, but doesnt change the code.</p>
+    <pre><code>git reset --mixed &lt;‘code of a commit from the git log’&gt;</code></pre>
+    <p>Removes the statingarea, but doesn't change the workingarea.</p>
+    <pre><code>git reset --hard &lt;‘code of a commit from the git log’&gt;</code></pre>
+    <p>Remove the commit and all the changes made on it.</p>
+    
     <h4>Diff</h4>
     <p>Shows changes between commits </p>
     <pre><code>git diff</code></pre>
@@ -132,6 +149,8 @@ git config --global alias.mr merge</code></pre>
     <p>Allows you to switch between branches and load earlier files and commits</p>
     <pre><code>git checkout &lt;branchname&gt;</code></pre>
     <p>Switches to the specified branch.</p>
+    <pre><code>git checkout -b &lt;branchname&gt;</code></pre>
+    <p>Creates a new branch if doesn't exist and moves to it.</p>
     <pre><code>git checkout &lt;commit&gt;</code></pre>
     <p>Detaches the commit and sets to working directory to that snapshot. Changes may be made and then committed, thereby resetting files to an earlier state.</p>
     <pre><code>git checkout &lt;branch&gt;~[n] </code></pre>
